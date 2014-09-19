@@ -37,8 +37,9 @@
         style: function (feature) {
             var percapita = feature.properties.handguns / feature.properties.pop * 1000
             return {
-                weight: 3,
-                color: getColor(percapita),
+                weight: 2,
+                color: '#fff',
+                opacity: 1,
                 fillOpacity: .7,
                 fillColor: getColor(percapita)
             };
