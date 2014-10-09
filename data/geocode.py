@@ -15,7 +15,8 @@ gun_data = []
 for d in data:
     if d[4] == 'GUN':
         gun_data.append(d)
-
+gdl = len(gun_data)
+print gdl
 ## Geolocate.  Nominatim, the OSM geocoder, had been a little frustrating so I switched to Google like a rube.
 ## Note that you are 'supposed to send an API key' and this 'may result in a temporary IP ban'
 ## https://developers.google.com/maps/documentation/geocoding/#api_key for details
@@ -24,18 +25,26 @@ geolocator = GoogleV3()
 
 location_data = []
 
-for d in gun_data:
+for i,d in enumerate(gun_data):
     if re.search('BLOCK OF',d[6]):
         s = d[6].split("-")[1].replace(" BLOCK OF","") + ', Washington, DC'
     else:
         s = d[6] + ', Washington, DC'
-    location = geolocator.geocode(s)
-    print(location.latitude, location.longitude)
-    row = []
-    for el in d:
-        row.append(el)
-    row.append(location.latitude)
-    row.append(location.longitude)
+    try:
+        location = geolocator.geocode(s)
+        print(location.latitude, location.longitude, i/float(gdl))
+        row = []
+        for el in d:
+            row.append(el)
+        row.append(location.latitude)
+        row.append(location.longitude)
+    except:
+        print("ERROR", i/float(gdl))
+        row = []
+        for el in d:
+            row.append(el)
+        row.append(0)
+        row.append(0)
     location_data.append(row)
     time.sleep(0.2) # delays for 0.2 seconds to prevent API bans
 
