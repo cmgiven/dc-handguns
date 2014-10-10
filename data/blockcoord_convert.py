@@ -1,8 +1,5 @@
 import csv
-import re
-import time
-import urllib
-import urllib2
+import requests
 from bs4 import BeautifulSoup
 
 ## import data
@@ -28,11 +25,8 @@ for i,d in enumerate(gun_data):
     try:
         value = d[7] + ',' + d[8]
         params = {'SPCSXYSTR': value}
-        en_params = urllib.urlencode(params)
-        req = urllib2.Request(url,en_params)
-        response = urllib2.urlopen(req)
-        the_page = response.read()
-        soup = BeautifulSoup(the_page)
+        r = requests.post(url,data=params)
+        soup = BeautifulSoup(r.text)
         cs = soup.find('convstr')
         row = []
         for el in d:
