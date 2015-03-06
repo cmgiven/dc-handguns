@@ -11,7 +11,7 @@
     "communityPartner": {
         "WAMU 88.5": "http://wamu.org"
     },
-    "type": "Web app",
+    "type": "Map",
     "data": {
         "DC handgun ownership by zip code": "https://github.com/cmgiven/dc-handguns/tree/master/data"
     },
