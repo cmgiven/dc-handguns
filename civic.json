@@ -1,0 +1,27 @@
+{
+    "conformsTo": "http://codefordc.org/resources/specification.html",
+    "status": "Archival",
+    "contact": {
+        "name": "Chris Given",
+        "email": "cmgiven@gmail.com",
+        "twitter": "@cmgiven"
+    },
+    "bornAt": "Code for DC",
+    "geography": "Washington, DC",
+    "communityPartner": {
+        "WAMU 88.5": "http://wamu.org"
+    },
+    "type": "Web app",
+    "data": {
+        "DC handgun ownership by zip code": "https://github.com/cmgiven/dc-handguns/tree/master/data"
+    },
+    "needs": [],
+    "categories": [
+        {"category":"Guns"},
+        {"category":"Handguns"},
+        {"category":"Concealed Carry"},
+        {"category":"Safety"},
+        {"category":"Crime"},
+        {"category":"Law"}
+    ]
+}
